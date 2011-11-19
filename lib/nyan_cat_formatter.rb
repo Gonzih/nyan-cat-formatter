@@ -145,5 +145,12 @@ class NyanCatFormatter < RSpec::Core::Formatters::BaseTextFormatter
     end
   end
 
+  # Returns terminal width
+  def get_terminal_width
+    width = `tput cols`.to_i
+    width = 80 if width == 0
+
+    width
+  end
 end
 
